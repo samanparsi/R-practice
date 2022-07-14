@@ -78,3 +78,65 @@ myframe<- data.frame(foo=1:4,bar=c(T,T,F,F))
 #matrix can have names for dimensions only 
 #dimnames(m)<-list(c("a","b"),c("c","d"))
 
+#Reading data 
+#read.table #read.csv Read documentations about them.
+#readLines for reading lines of text
+#source for loading script (inverse of dump)
+#degt for reading in R code files (inverse of dput)
+#load for reading saved workspaces
+#unserialize for reading single R projects in binary form
+
+#data<-read.table("foo.txt")
+#auto things: Skip lines with # , length , type of data 
+#read.csv is the same 
+
+#for larger datasets: Read the help page of read.table and memorize it
+#know how much RAM you need to load dataset. nrow*ncol*datatypeSpace
+#set comment.char=""
+#use colClasses to speed thing up 
+#initial <-read.table("datatable.txt",nrows=100)
+#classes<- sapply(intial,class)
+#tabAll<-read.table(datatable.txt",colClassses=classes)
+#above codes will speed up loading all datasets by figuring out the datatypes
+#for a small part of dataset and applying it to all datasets when reading it
+
+#Textual formats: an essay for example
+#R fallows Unix philosophy in this , but it is not space efficient
+#dput(x) reconstructs the text into R codes into text file and
+#we can get it using dget
+#dump does the same but it can send every thing. reverse it via source
+
+#we can connect R to outside world.
+#file , gzfile , bzfile , url all opens other file types.
+#"r" read only , "w" writing , "a" appending , other combos are allowed "rb"
+#con<-gzfile("myfile"),x<-readLines(con,10)
+#con<-url("address")
+
+#Sub-setting:
+#[ always returns object of same class , select one or more elements
+#use it just like python
+#[[ is used to extract elements of al list or data frame for single element
+# $ extract elements by name.
+#u<- a>3 selects elements in a which are bigger than 3 and puts them in u
+#you can do multiple things in one line
+#x$foo returns all the elements named foo 
+#[[]] can get a list and apply it to our dataset
+#x[[1][3]] first line third item
+#x[1,2,drop=FALSE] this way you get data by its dimensions and base form not just
+#an integer z.b
+
+#R has Partial matching. It means if a name is not given in dataset , R searches
+#for the name which has that name partial like an in hand 
+#this don't work in double bracket
+
+#Removing NA values:
+#first find NAs then remove them. 
+#x<-c(1,2,NA,4,NA,5)   bad<-is.na(x)
+#x[!bad] returns the dataset without NA values. assign it and enjoy!
+#good <-complete.cases(x,y,z,m,n) gives a vector in which all the given vectors
+#the data is there and not NA. this way we can remove NAs from all of them
+
+#vectorized operations: to prevent looping and make things easier
+# we can add , compare , multiply , compare , power and other mathemathical 
+#functions on all of the elemnts simply by doing it: x+y , x==y , ...
+#R does it automaticly for all of our datas.

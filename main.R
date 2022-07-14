@@ -140,3 +140,5 @@ myframe<- data.frame(foo=1:4,bar=c(T,T,F,F))
 # we can add , compare , multiply , compare , power and other mathemathical 
 #functions on all of the elemnts simply by doing it: x+y , x==y , ...
 #R does it automaticly for all of our datas.
+
+#for matrix multiplication use x%*%y insted of x*y (this does it element wise)

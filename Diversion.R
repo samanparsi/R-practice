@@ -39,11 +39,31 @@ g<-function(x){
 #3 Limit the code in each line to 80 columns (chars)
 #4 Limit functions activity into one specific task.keep it simple stupid.KISS
 
+#data: as.Date()
+x<-as.Date("1970-01-01")
+#they have a special class for date 
+x
+#and this date is day 0 for R
+unclass(x)
 
+#R uses POSIXct and POSIXlt.ct uses a big number for time.lt uses a list for
+#time. there is also weekdays , months and quarters(Q1,Q2,Q3,Q4)
 
+x<-Sys.time()
+x
+p<-as.POSIXlt(x)
+p
+names(unclass(p))
 
+p$sec
+p$months
 
-
+#strptime: changes character time formats into R time format
+datesstring<-c("Jaunuary 10 , 2012 , 10:40","December 9 , 2011 9:10")
+x<-strptime(datestring,"%B %d %Y %H:%M")
+x
+#setting up how to read date format is needed always
+#for doing mathematical operations remember to use POSIXct
 
 
 

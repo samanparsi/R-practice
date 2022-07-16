@@ -37,4 +37,13 @@ tapply(x,f,mean)
 #if you dont simplify , a list will be returned
 
 
-#5 Split:
+#5 Split: cracks a vector into pieces applies the functions and gathers it back
+#together. it gets a vector or list , a functions. it returns a list back.
+#it being used with others mainly. it's good for complicated objects.
+x<-c(rnorm(10),runif(10),rnorm(10,1))
+f<-gl(3,10)
+split(x,f) # splits x based on each f given 
+lapply(split(x,f),mean)#taking mean of all the x categorized by their respective
+#f 
+#also it is possible to split in more than one level and factor
+#split(x,list(f1,f2)) split x based on f1 and f2.drop=TRUE drops empty levels

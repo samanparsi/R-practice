@@ -25,4 +25,7 @@ system.time({
     r[i]<-mean(x)
   }
 })
-
+#Rprof: starts profiling in R. summaryRprof() is summarizes data for us
+#DO NOT use system.time() and Rprof() together!!!!!
+#It keeps track of functions call stack. default sampling interval is 0.02sec
+#Note: if your code is faster than 0.02 , it's useless

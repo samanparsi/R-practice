@@ -22,4 +22,5 @@ xt<-xtabs(Store_Area ~ Daily_Customer_Count + Store_Sales,data=df)
 xt #calculating store store sales related to store area categorized by store
 #are
 
-
+ftable(xt) #creates flat table
+object.size(df)
